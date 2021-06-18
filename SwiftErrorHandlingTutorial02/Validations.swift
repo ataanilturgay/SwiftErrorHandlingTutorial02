@@ -50,7 +50,7 @@ final class LoginValidations {
             throw LoginError.invalidEmail
         }
         
-        if passwordString.trimmingCharacters(in: .whitespacesAndNewlines).count < 8 {
+        if passwordString.filter({ !$0.isWhitespace }).count < 8 {
             throw LoginError.incorrectPasswordLength
         }
     }
